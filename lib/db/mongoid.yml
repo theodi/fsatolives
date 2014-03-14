@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: gazetteer
+      hosts:
+        - localhost:27017
