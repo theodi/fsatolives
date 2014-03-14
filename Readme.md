@@ -1,6 +1,6 @@
 # FSA to LIVES
 
-A script that automagically converts Food Standard Agency open data into Yelp-compative [LIVES](http://www.yelp.com/healthscores) data.
+A script that automagically converts Food Standard Agency open data into Yelp-compatible [LIVES](http://www.yelp.com/healthscores) data.
 
 ## Getting this up and running
 
