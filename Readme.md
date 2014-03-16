@@ -1,3 +1,9 @@
+[![Build Status](http://img.shields.io/travis/theodi/fsatolives.svg)](https://travis-ci.org/theodi/fsatolives)
+[![Dependency Status](http://img.shields.io/gemnasium/theodi/fsatolives.svg)](https://gemnasium.com/theodi/fsatolives)
+[![Coverage Status](http://img.shields.io/coveralls/theodi/fsatolives.svg)](https://coveralls.io/r/theodi/fsatolives)
+[![Code Climate](http://img.shields.io/codeclimate/github/theodi/fsatolives.svg)](https://codeclimate.com/github/theodi/fsatolives)
+[![Badges](http://img.shields.io/:badges-5/5-ff6799.svg)](https://github.com/pikesley/badger)
+
 # FSA to LIVES
 
 A script that automagically converts Food Standard Agency open data into Yelp-compatible [LIVES](http://www.yelp.com/healthscores) data.
