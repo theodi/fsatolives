@@ -7,12 +7,12 @@ Coveralls.wear!
 require 'vcr'
 require 'pry'
 require 'fsatolives'
-require 'fakefs/spec_helpers'
-
+require 'fakefs/safe'
+require 'timecop'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
-  c.default_cassette_options = { :record => :all }
+  c.default_cassette_options = { :record => :once }
   c.hook_into :webmock
   c.configure_rspec_metadata!
 end

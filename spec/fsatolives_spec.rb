@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe FsaToLives do
-  include FakeFS::SpecHelpers
   
   it "gets a list of authorities", :vcr do
     authorities = FsaToLives.authorities
@@ -19,6 +18,8 @@ describe FsaToLives do
   end
   
   it "returns authority data in LIVES format" do
+    Timecop.freeze(Date.parse("2014-03-14"))
+    
     authority = {
       "LocalAuthorityId"=>1,
      "LocalAuthorityIdCode"=>"027",
@@ -54,12 +55,14 @@ describe FsaToLives do
           "env.health@cambridge.gov.uk"
         ]
       ]
+      
+    Timecop.return
   end
   
   it "gets a list of inspections", :vcr do
     url = "http://ratings.food.gov.uk/OpenDataFiles/FHRS027en-GB.xml"
     inspections = FsaToLives.get_inspections(url)
-    inspections.count.should == 1210
+    inspections.count.should == 1211
     inspections.first['FHRSID'].should_not == nil
     inspections.first['BusinessName'].should_not == nil
     inspections.first['AddressLine1'].should_not == nil
@@ -296,28 +299,49 @@ describe FsaToLives do
           nil
         ]
       ]
-      
-    csv = FsaToLives.to_csv(array)
-    csv.class.should == Tempfile
-    CSV.parse(csv.read).should == array
+    
+    csv = CSV.generate do |csv|
+      array.each { |a| csv << a }
+    end
+        
+    Tempfile.should_receive(:new).once
+    CSV.should_receive(:open).once.and_return(csv)
+    FsaToLives.to_csv(array)
   end
   
-  it "zips multiple files" do
-    file1 = Tempfile.new('file1')
-    file1.write('1,2,3')
-    file1.rewind
+  context "creating zip files" do
     
-    file2 = Tempfile.new('file2')
-    file2.write('3,4,5')
-    file2.rewind
+    before(:each) do
+      @file1 = Tempfile.new('file1')
+      @file1.write('1,2,3')
+      @file1.rewind
+
+      @file2 = Tempfile.new('file2')
+      @file2.write('3,4,5')
+      @file2.rewind
+    end
     
-    FsaToLives.zip_files("1", {
-      "file1" => file1,
-      "file2" => file2
-    })
+    it "creates the correct filename" do
+      Timecop.freeze(Date.parse("2014-03-14"))
+      
+      Zip::File.should_receive(:open).once.with("lives-1-2014-03-14.zip", Zip::File::CREATE)
+      
+      FsaToLives.zip_files("1", {
+        "file1" => @file1,
+        "file2" => @file2
+      })
+
+      Timecop.return
+    end
     
-    binding.pry
-    File.exist?('lives-1-2013-03-14.zip').should be_true
+    it "zips the correct files" do
+      Zip::File.any_instance.should_receive(:add).exactly(2).times
+      
+      FsaToLives.zip_files("1", {
+        "file1" => @file1,
+        "file2" => @file2
+      })
+    end
   end
     
 end

@@ -13,3 +13,4 @@ gem "mongoid", "~> 3.1.6"
 gem 'bson_ext'
 gem 'rubyzip'
 gem 'fakefs'
+gem 'timecop'

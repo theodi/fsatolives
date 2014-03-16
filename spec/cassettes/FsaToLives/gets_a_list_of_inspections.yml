@@ -21,20 +21,20 @@ http_interactions:
       Content-Type:
       - text/xml
       Last-Modified:
-      - Fri, 14 Mar 2014 01:02:25 GMT
+      - Sat, 15 Mar 2014 01:02:50 GMT
       Accept-Ranges:
       - bytes
       Etag:
-      - "\"b1a5e2f213fcf1:0\""
+      - "\"ecac5a49ea3fcf1:0\""
       Server:
       - Microsoft-IIS/7.5
       Date:
-      - Fri, 14 Mar 2014 17:28:42 GMT
+      - Sun, 16 Mar 2014 08:09:52 GMT
       Content-Length:
-      - '1201570'
+      - '1202580'
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\"?><FHRSEstablishment xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><Header><ExtractDate>2014-03-14</ExtractDate><ItemCount>1210</ItemCount><ReturnCode>Success</ReturnCode></Header><EstablishmentCollection><EstablishmentDetail><FHRSID>507136</FHRSID><LocalAuthorityBusinessID>PI/000081182</LocalAuthorityBusinessID><BusinessName>196</BusinessName><BusinessType>Restaurant/Cafe/Canteen</BusinessType><BusinessTypeID>1</BusinessTypeID><AddressLine1>Mill
+      string: "<?xml version=\"1.0\"?><FHRSEstablishment xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><Header><ExtractDate>2014-03-15</ExtractDate><ItemCount>1211</ItemCount><ReturnCode>Success</ReturnCode></Header><EstablishmentCollection><EstablishmentDetail><FHRSID>507136</FHRSID><LocalAuthorityBusinessID>PI/000081182</LocalAuthorityBusinessID><BusinessName>196</BusinessName><BusinessType>Restaurant/Cafe/Canteen</BusinessType><BusinessTypeID>1</BusinessTypeID><AddressLine1>Mill
         Road</AddressLine1><AddressLine2>Cambridge</AddressLine2><AddressLine3>Cambridgeshire</AddressLine3><PostCode>CB1
         3NF</PostCode><RatingValue>5</RatingValue><RatingKey>fhrs_5_en-GB</RatingKey><RatingDate>2012-12-03</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
         City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>0</Hygiene><Structural>0</Structural><ConfidenceInManagement>5</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.14503400000000</Longitude><Latitude>52.19734600000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506058</FHRSID><LocalAuthorityBusinessID>PI/000005085</LocalAuthorityBusinessID><BusinessName>27
@@ -579,7 +579,11 @@ http_interactions:
         Horizons</BusinessName><BusinessType>Restaurant/Cafe/Canteen</BusinessType><BusinessTypeID>1</BusinessTypeID><AddressLine1>Childrens
         Nursery</AddressLine1><AddressLine2>Robinson Way</AddressLine2><AddressLine3>Cambridge</AddressLine3><AddressLine4>Cambridgeshire</AddressLine4><PostCode>CB2
         0SZ</PostCode><RatingValue>5</RatingValue><RatingKey>fhrs_5_en-GB</RatingKey><RatingDate>2013-11-06</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
-        City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>0</Hygiene><Structural>0</Structural><ConfidenceInManagement>5</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.14182000000000</Longitude><Latitude>52.17311700000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506444</FHRSID><LocalAuthorityBusinessID>PI/000020726</LocalAuthorityBusinessID><BusinessName>Brook
+        City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>0</Hygiene><Structural>0</Structural><ConfidenceInManagement>5</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.14182000000000</Longitude><Latitude>52.17311700000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>633943</FHRSID><LocalAuthorityBusinessID>PI/000083513</LocalAuthorityBusinessID><BusinessName>Broadway
+        Buttery</BusinessName><BusinessType>Restaurant/Cafe/Canteen</BusinessType><BusinessTypeID>1</BusinessTypeID><AddressLine1>230
+        Mill Road</AddressLine1><AddressLine2>Cambridge</AddressLine2><AddressLine3>Cambridgeshire</AddressLine3><PostCode>CB1
+        3NF</PostCode><RatingValue>4</RatingValue><RatingKey>fhrs_4_en-GB</RatingKey><RatingDate>2014-02-13</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
+        City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>10</Hygiene><Structural>0</Structural><ConfidenceInManagement>10</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.14503400000000</Longitude><Latitude>52.19734600000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506444</FHRSID><LocalAuthorityBusinessID>PI/000020726</LocalAuthorityBusinessID><BusinessName>Brook
         House</BusinessName><BusinessType>Hospitals/Childcare/Caring Premises</BusinessType><BusinessTypeID>5</BusinessTypeID><AddressLine1>Seymour
         Street</AddressLine1><AddressLine2>Cambridge</AddressLine2><AddressLine3>Cambridgeshire</AddressLine3><PostCode>CB1
         3DJ</PostCode><RatingValue>4</RatingValue><RatingKey>fhrs_4_en-GB</RatingKey><RatingDate>2014-02-12</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
@@ -2541,8 +2545,8 @@ http_interactions:
         City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>5</Hygiene><Structural>5</Structural><ConfidenceInManagement>5</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.14503400000000</Longitude><Latitude>52.19734600000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506583</FHRSID><LocalAuthorityBusinessID>PI/000027154</LocalAuthorityBusinessID><BusinessName>Long
         Road Sixth From College</BusinessName><BusinessType>School/college/university</BusinessType><BusinessTypeID>7845</BusinessTypeID><AddressLine1>Long
         Road Sixth Form College</AddressLine1><AddressLine2>Long Road</AddressLine2><AddressLine3>Cambridge</AddressLine3><AddressLine4>Cambridgeshire</AddressLine4><PostCode>CB2
-        8PX</PostCode><RatingValue>5</RatingValue><RatingKey>fhrs_5_en-GB</RatingKey><RatingDate>2012-09-18</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
-        City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>5</Hygiene><Structural>0</Structural><ConfidenceInManagement>5</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.13278000000000</Longitude><Latitude>52.17858600000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506578</FHRSID><LocalAuthorityBusinessID>PI/000027125</LocalAuthorityBusinessID><BusinessName>Lord
+        8PX</PostCode><RatingValue>3</RatingValue><RatingKey>fhrs_3_en-GB</RatingKey><RatingDate>2014-02-13</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
+        City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>5</Hygiene><Structural>10</Structural><ConfidenceInManagement>10</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.13278000000000</Longitude><Latitude>52.17858600000000</Latitude></Geocode></EstablishmentDetail><EstablishmentDetail><FHRSID>506578</FHRSID><LocalAuthorityBusinessID>PI/000027125</LocalAuthorityBusinessID><BusinessName>Lord
         Byron Inn</BusinessName><BusinessType>Pub/bar/nightclub</BusinessType><BusinessTypeID>7843</BusinessTypeID><AddressLine1>22
         Church Lane</AddressLine1><AddressLine2>Cambridge</AddressLine2><AddressLine3>Cambridgeshire</AddressLine3><PostCode>CB2
         9LA</PostCode><RatingValue>4</RatingValue><RatingKey>fhrs_4_en-GB</RatingKey><RatingDate>2013-01-14</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
@@ -4906,5 +4910,5 @@ http_interactions:
         1AB</PostCode><RatingValue>5</RatingValue><RatingKey>fhrs_5_en-GB</RatingKey><RatingDate>2012-07-19</RatingDate><LocalAuthorityCode>027</LocalAuthorityCode><LocalAuthorityName>Cambridge
         City</LocalAuthorityName><LocalAuthorityWebSite>http://www.cambridge.gov.uk</LocalAuthorityWebSite><LocalAuthorityEmailAddress>env.health@cambridge.gov.uk</LocalAuthorityEmailAddress><Scores><Hygiene>0</Hygiene><Structural>5</Structural><ConfidenceInManagement>0</ConfidenceInManagement></Scores><SchemeType>FHRS</SchemeType><Geocode><Longitude>0.12598200000000</Longitude><Latitude>52.20102700000000</Latitude></Geocode></EstablishmentDetail></EstablishmentCollection></FHRSEstablishment>"
     http_version: 
-  recorded_at: Fri, 14 Mar 2014 16:30:33 GMT
+  recorded_at: Sun, 16 Mar 2014 07:11:38 GMT
 recorded_with: VCR 2.8.0
