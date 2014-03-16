@@ -343,5 +343,23 @@ describe FsaToLives do
       })
     end
   end
+  
+  it "returns a zip file in LIVES format", :vcr do
+    Timecop.freeze(Date.parse("2014-03-14"))
+        
+    FsaToLives.perform(1)
+    filename = "lives-1-2014-03-14.zip"
+    
+    File.exist?(filename).should be_true
+    
+    zip = Zip::File.open(filename)
+    
+    businesses = zip.glob('businesses.csv').count.should == 1
+    inspections = zip.glob('inspections.csv').count.should == 1
+    feed_info = zip.glob('feed_info.csv').count.should == 1
+    
+    File.delete(filename)
+    Timecop.return
+  end
     
 end
