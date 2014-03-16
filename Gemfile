@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 #ruby=ruby-2.1.0
 #ruby-gemset=fsatolives
 
+gem 'rake'
 gem 'simplecov'
 gem 'coveralls'
 gem 'rspec'

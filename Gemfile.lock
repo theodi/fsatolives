@@ -39,6 +39,7 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.14.1)
@@ -77,6 +78,7 @@ DEPENDENCIES
   fakefs
   mongoid (~> 3.1.6)
   pry
+  rake
   rspec
   rubyzip
   simplecov
