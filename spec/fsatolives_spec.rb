@@ -132,21 +132,21 @@ describe FsaToLives do
   end
   
   it "returns a town from a hash of address lines" do
-    FsaToLives.fetch_city({
+    FsaToLives.fetch_place({
       "AddressLine1" => "123 High Street",
       "AddressLine2" => "Coleshill",
       "AddressLine3" => "Birmingham",
       "PostCode"     => "ANY 123"
-    }).should == "Coleshill"
+    }, Towns).should == "Coleshill"
   end
   
   it "returns a county from a hash of address lines" do
-    FsaToLives.fetch_province({
+    FsaToLives.fetch_place({
       "AddressLine1" => "123 High Street",
       "AddressLine2" => "Coleshill",
       "AddressLine3" => "Birmingham",
       "PostCode"     => "ANY 123"
-    }).should == "Birmingham"
+    }, Counties).should == "Birmingham"
   end
   
   it "returns a score in LIVES format" do

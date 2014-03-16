@@ -76,8 +76,8 @@ class FsaToLives
         inspection['FHRSID'],
         inspection['BusinessName'],
         parse_address(inspection),
-        fetch_city(inspection),
-        fetch_province(inspection),
+        fetch_place(inspection, Towns),
+        fetch_place(inspection, Counties),
         inspection['PostCode'],
         lat,
         lng,
@@ -128,15 +128,9 @@ class FsaToLives
     address_lines(inspection).delete_if{ |line| line.blank?}.join(", ")
   end
   
-  def self.fetch_city(inspection)
+  def self.fetch_place(inspection, type)
     address_lines(inspection).each do |line|
-      return line if Towns.where(name: line).count > 0        
-    end
-  end
-  
-  def self.fetch_province(inspection)
-    address_lines(inspection).each do |line|
-      return line if Counties.where(name: line).count > 0
+      return line if type.where(name: line).count > 0        
     end
   end
   
