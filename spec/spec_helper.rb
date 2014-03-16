@@ -1,3 +1,5 @@
+ENV["MONGOID_ENVIRONMENT"] = "test"
+
 require 'simplecov'
 SimpleCov.start
 
