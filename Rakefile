@@ -19,3 +19,9 @@ task :create do
     p "Please enter an ID eg: `rake create id=1`"
   end
 end
+
+task :list_authorities do 
+  authorities = FsaToLives.authorities
+  authorities.sort_by! { |a| a['Name'] }
+  authorities.each {|a| puts "#{a['Name']} - #{a['LocalAuthorityId']}" }
+end
