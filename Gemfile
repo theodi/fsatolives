@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 #ruby-gemset=fsatolives
 
 gem 'rake'
+gem 'database_cleaner'
 gem 'simplecov'
 gem 'coveralls'
 gem 'rspec'

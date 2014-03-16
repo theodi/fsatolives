@@ -11,6 +11,9 @@ require 'pry'
 require 'fsatolives'
 require 'fakefs/safe'
 require 'timecop'
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
@@ -20,6 +23,16 @@ VCR.configure do |c|
 end
 
 RSpec.configure do |config|
+  
+  config.before(:all) do
+    DatabaseCleaner.clean
+    Towns.create(name: "Cambridge")
+    Towns.create(name: "Coleshill")
+    Towns.create(name: "Birmingham")
+    Counties.create(name: "Birmingham")
+    Counties.create(name: "Cambridgeshire")
+  end
+  
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.order = "random"
 end
