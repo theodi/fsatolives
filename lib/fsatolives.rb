@@ -11,7 +11,13 @@ require 'db/counties'
 
 class FsaToLives
   
-  def self.perform(id)
+  def self.perform(ids)
+    ids.each do |id|
+      create_zip(id)
+    end
+  end
+  
+  def self.create_zip(id)
     authority = get_authority(id)
     inspections = get_inspections(authority['FileName'])
     zip_files(id, {

@@ -13,10 +13,11 @@ task :import do
 end
 
 task :create do
-  if ENV['id']
-    FsaToLives.perform(ENV['id'])
+  if ENV['ids']
+    ids = ENV['ids'].split(",")
+    FsaToLives.perform(ids)
   else
-    p "Please enter an ID eg: `rake create id=1`"
+    p "Please enter the IDs of the authorities that you want to export as a comma seperated list eg: `rake create ids=1,2,4`"
   end
 end
 

@@ -347,7 +347,7 @@ describe FsaToLives do
   it "returns a zip file in LIVES format", :vcr do
     Timecop.freeze(Date.parse("2014-03-14"))
         
-    FsaToLives.perform(1)
+    FsaToLives.perform([1])
     filename = "lives-1-2014-03-14.zip"
     
     File.exist?(filename).should be_true
@@ -359,6 +359,20 @@ describe FsaToLives do
     feed_info = zip.glob('feed_info.csv').count.should == 1
     
     File.delete(filename)
+    Timecop.return
+  end
+  
+  it "returns multiple zip files in LIVES format", :vcr do
+    Timecop.freeze(Date.parse("2014-03-14"))
+        
+    FsaToLives.perform([1,2])
+    
+    File.exist?("lives-1-2014-03-14.zip").should be_true
+    File.exist?("lives-2-2014-03-14.zip").should be_true
+    
+    File.delete("lives-1-2014-03-14.zip")
+    File.delete("lives-2-2014-03-14.zip")
+
     Timecop.return
   end
     
