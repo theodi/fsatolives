@@ -384,5 +384,17 @@ describe FsaToLives do
 
     Timecop.return
   end
+  
+  it "imports the gazetteer" do
+    Towns.delete_all
+    Counties.delete_all
+    
+    FsaToLives.should_receive(:gazeteer_location).and_return(File.join("spec", "fixtures", "gazzetteer.txt"))
+    
+    FsaToLives.import
+        
+    Towns.count.should == 4
+    Counties.count.should == 3
+  end
     
 end

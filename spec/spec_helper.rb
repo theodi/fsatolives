@@ -24,7 +24,7 @@ end
 
 RSpec.configure do |config|
   
-  config.before(:all) do
+  config.before(:each) do
     DatabaseCleaner.clean
     Towns.create(name: "Cambridge")
     Towns.create(name: "Coleshill")
