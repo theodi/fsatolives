@@ -149,6 +149,15 @@ describe FsaToLives do
     }, Counties).should == "Birmingham"
   end
   
+  it "returns nil if place is not found in hash" do
+    FsaToLives.fetch_place({
+      "AddressLine1" => "123 Fake Street",
+      "AddressLine2" => "Anytown",
+      "AddressLine3" => "Anyplace",
+      "PostCode"     => "ANY 123"
+    }, Counties).should == nil
+  end
+  
   it "returns a score in LIVES format" do
     FsaToLives.get_score("5").should == 100
     FsaToLives.get_score("4").should == 80

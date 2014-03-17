@@ -138,6 +138,7 @@ class FsaToLives
     address_lines(inspection).each do |line|
       return line if type.where(name: line).count > 0        
     end
+    return nil
   end
   
   def self.get_score(score)
