@@ -396,5 +396,9 @@ describe FsaToLives do
     Towns.count.should == 4
     Counties.count.should == 3
   end
+  
+  it "returns the correct path" do
+    FsaToLives.gazeteer_location.to_s.should == "data/50kgaz2013.txt"
+  end
     
 end
