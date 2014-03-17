@@ -28,6 +28,10 @@ To get a list of authorities and their IDs, just run:
 
     rake list_authorities
     
+If you want to generate a zipfile for all authorities (this may take a while), then run:
+
+    rake create:all
+    
 ## Acknowledgements
 
 Contains Ordnance Survey data © Crown Copyright and database right 2014
