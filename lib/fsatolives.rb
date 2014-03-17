@@ -8,6 +8,10 @@ require 'zip'
 require 'active_support/core_ext/hash'
 require 'db/towns'
 require 'db/counties'
+require 'fsatolives/authorities'
+require 'fsatolives/generators'
+require 'fsatolives/helpers'
+require 'fsatolives/import'
 
 class FsaToLives
   
@@ -27,91 +31,10 @@ class FsaToLives
       })
   end
   
-  def self.get_authority(id)
-    url = "http://api.ratings.food.gov.uk/Authorities/#{id}"
-    JSON.parse(open(url, "x-api-version" => "2").read)
-  end
-  
-  def self.authorities
-    url = "http://api.ratings.food.gov.uk/Authorities"
-    authorities = JSON.parse(open(url, "x-api-version" => "2").read)
-    authorities['authorities']
-  end
-  
   def self.get_inspections(url)
     response = open(url).read
     inspections = Hash.from_xml(response)
     inspections['FHRSEstablishment']['EstablishmentCollection']['EstablishmentDetail']
-  end
-  
-  def self.feed_info(authority)
-    rows = []
-    rows << [
-        'feed_date',
-        'feed_version',
-        'municipality_name',
-        'municipality_url',
-        'contact_email'
-      ]
-    rows << [
-        date_format(Date.today.to_s),
-        '0.4.1',
-        authority['Name'],
-        authority['Url'],
-        authority['Email']
-      ]
-  end
-  
-  def self.businesses(inspections)
-    rows = []
-    rows << [
-      'business_id',
-      'name',
-      'address',
-      'city',
-      'state',
-      'postal_code',
-      'latitude',
-      'longitude',
-      'phone_number'
-    ]
-    inspections.each do |inspection|
-      lat = inspection['Geocode']['Latitude'] rescue nil
-      lng = inspection['Geocode']['Longitude'] rescue nil
-      rows << [
-        inspection['FHRSID'],
-        inspection['BusinessName'],
-        parse_address(inspection),
-        fetch_place(inspection, Towns),
-        fetch_place(inspection, Counties),
-        inspection['PostCode'],
-        lat,
-        lng,
-        nil
-      ]
-    end
-    rows
-  end
-  
-  def self.inspections(inspections)
-    rows = []
-    rows << [
-        'business_id',
-        'score',
-        'date',
-        'description',
-        'type'
-      ]
-    inspections.each do |inspection|
-      rows << [
-          inspection['FHRSID'],
-          get_score(inspection['RatingValue']),
-          date_format(inspection['RatingDate']),
-          nil,
-          nil
-        ]
-    end
-    rows
   end
   
   def self.to_csv(array)
@@ -128,35 +51,6 @@ class FsaToLives
         zipfile.add("#{filename}.csv", tempfile)
       end
     end
-  end
-  
-  def self.parse_address(inspection)
-    address_lines(inspection).delete_if{ |line| line.blank?}.join(", ")
-  end
-  
-  def self.fetch_place(inspection, type)
-    address_lines(inspection).each do |line|
-      return line if type.where(name: line).count > 0        
-    end
-    return nil
-  end
-  
-  def self.get_score(score)
-    score.to_i * 20
-  end
-  
-  def self.date_format(date)
-    Date.parse(date).strftime("%Y%m%d")
-  end
-  
-  def self.address_lines(inspection)
-    [
-      inspection['AddressLine1'],
-      inspection['AddressLine2'],
-      inspection['AddressLine3'],
-      inspection['AddressLine4'],
-      inspection['PostCode']
-    ]
   end
   
 end

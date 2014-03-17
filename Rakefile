@@ -1,7 +1,6 @@
 $:.unshift File.join( File.dirname(__FILE__), "lib")
 
 require 'rspec/core/rake_task'
-require 'import'
 require 'fsatolives'
 
 RSpec::Core::RakeTask.new(:spec)
@@ -9,7 +8,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :import do
-  Import.perform
+  FsaToLives.import
 end
 
 task :create do
